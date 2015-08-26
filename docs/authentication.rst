@@ -30,12 +30,11 @@ PHP Example:
 
 .. code-block:: php
 
-	$access = 'd9d9a83bf099df0396a8177593c52628f20ad86b';
+    $access = 'd9d9a83bf099df0396a8177593c52628f20ad86b';
     $secret = 'b8b5be6b13ff089e02e1102e33399386a1c46700bcee261246d9dfa6ac59d43e95bb90b0ea21b9fb42a64115d61a602d14119c91cf840f36df7194a299a056a2';
-    
-    
-	$body = array
-	(
+
+    $body = array
+    (
         'first_name' => 'FirstName',
         'last_name' => 'LastName',
         'gender' => 'M',
@@ -44,19 +43,31 @@ PHP Example:
         'email' => 'random+7434@domain.com',
         'merchant_reference' => 'GKQ2JD5BSW5IOZZZCSBB',
         'timestamp' => '2015-08-26 10:20:05 -0300'
-	);
+    );
+
 
 	Body String Result:
+
+.. code-block:: php
+
     $bodyString ="first_name:FirstName,last_name:LastName,gender:M,telephone:(11) 1234-1234,cpf:96422920415,email:random+7434@domain.com,merchant_reference:GKQ2JD5BSW5IOZZZCSBB,timestamp:2015-08-26 10:20:05 -0300";
 
     $sha512 = hash_hmac('sha512', $bodyString, $secretKey);
-    
-    HMAC 512 Result: 
+
+
+    HMAC 512 Result:
+
+.. code-block:: php
+
     $sha512 = 'ef04002d738e4242438343706b191cfaddd3c347b2250e8cc8bd979a6ac4233c0c4aa07243582cc314ee9d9be27d68e0a50d60ea639b8d8258832f4e50184077'
 
     $requestSignatureToken = sha1($sha512);
 
+
 	SHA1 Signature Result:
+
+.. code-block:: php
+
     $requestSignatureToekn = '2bc1f1d4efc5a28cf71d3d6d7ff4631ed6bf5fcb';
 
 The final request needs to be as below:
